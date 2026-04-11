@@ -44,7 +44,8 @@ export default function FeaturesSection() {
   return (
     <section
       id="skills"
-      className="py-20 md:py-24 bg-pattern"
+      className="py-20 md:py-24"
+      style={{ background: "var(--bg-deep)" }}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}

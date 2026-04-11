@@ -158,19 +158,6 @@ export default function HeroSection() {
         </div>
       </div>
       
-      {/* Mobile Avatar (shows in the document flow, hidden md) */}
-      <div className="animate-fade-in shrink-0 block md:hidden mb-6 order-first">
-        <div className="avatar-ring animate-float inline-block">
-          <Image
-            src="/avatar.png"
-            alt="Justin Chinonso"
-            width={140}
-            height={140}
-            className="rounded-full object-cover"
-            priority
-          />
-        </div>
-      </div>
     </section>
   );
 }

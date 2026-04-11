@@ -20,9 +20,8 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="py-14 px-4 sm:px-6"
+      className="py-14 px-4 sm:px-6 bg-pattern"
       style={{
-        background: "var(--bg-deep)",
         borderTop: "1px solid var(--border)",
       }}
     >

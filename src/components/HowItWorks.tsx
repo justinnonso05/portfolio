@@ -46,8 +46,7 @@ export default function HowItWorks() {
   return (
     <section
       id="experience"
-      className="py-20 md:py-24 relative overflow-hidden"
-      style={{ background: "var(--bg)" }}
+      className="py-20 md:py-24 relative overflow-hidden bg-pattern"
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}

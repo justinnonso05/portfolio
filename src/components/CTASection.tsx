@@ -45,7 +45,8 @@ export default function CTASection() {
   return (
     <section
       id="projects"
-      className="py-20 md:py-24 bg-pattern"
+      className="py-20 md:py-24"
+      style={{ background: "var(--bg)" }}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
