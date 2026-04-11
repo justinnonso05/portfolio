@@ -1,0 +1,359 @@
+@import "tailwindcss";
+
+/* ─── Portfolio Brand Tokens ─────────────────────────────────── */
+:root {
+  --bg:            #0a0a0a;
+  --bg-deep:       #000000;
+  --primary:       #111111;
+  --primary-mid:   #1a1a1a;
+  --primary-light: #222222;
+  --accent:        #FF5722;
+  --accent-mid:    #F4511E;
+  --accent-dim:    rgba(255, 87, 34, 0.15);
+  --white:         #ffffff;
+  --gray-200:      #e5e7eb;
+  --gray-300:      #d1d5db;
+  --gray-400:      #9ca3af;
+  --gray-500:      #6b7280;
+  --gray-600:      #4b5563;
+  --card-bg:       rgba(20, 20, 20, 0.85);
+  --card-bg-solid: #141414;
+  --border:        rgba(255, 255, 255, 0.08);
+  --border-mid:    rgba(255, 255, 255, 0.15);
+
+  --background: var(--bg);
+  --foreground: var(--white);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── Hero Background Layers ─────────────────────────────────── */
+.hero-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #000000 0%, #050505 55%, #0a0a0a 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Subtle starfield */
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 15px  25px, rgba(255,255,255,0.45), transparent),
+    radial-gradient(1px   1px   at 45px  80px, rgba(255,255,255,0.25), transparent),
+    radial-gradient(2px   2px   at 95px  35px, rgba(255,255,255,0.35), transparent),
+    radial-gradient(1px   1px   at 130px 60px, rgba(255,255,255,0.2),  transparent),
+    radial-gradient(1.5px 1.5px at 200px 20px, rgba(255,255,255,0.4),  transparent),
+    radial-gradient(1px   1px   at 260px 90px, rgba(255,255,255,0.28), transparent),
+    radial-gradient(2px   2px   at 310px 50px, rgba(255,255,255,0.35), transparent),
+    radial-gradient(1px   1px   at 370px 15px, rgba(255,255,255,0.3),  transparent),
+    radial-gradient(1.5px 1.5px at 420px 75px, rgba(255,255,255,0.4),  transparent),
+    radial-gradient(1px   1px   at 480px 40px, rgba(255,255,255,0.22), transparent);
+  background-repeat: repeat;
+  background-size: 520px 120px;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+/* Very subtle accent glow at bottom */
+.hero-glow {
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 70%;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255,87,34,0.25) 0%, rgba(20,20,20,0.8) 35%, transparent 65%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Subtle top glow */
+.hero-glow-top {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 50%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,87,34,0.05) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ─── 3-D perspective wireframe FLOOR grid ─────────────────── */
+.hero-grid {
+  position: absolute;
+  bottom: 0;
+  left: -60%;
+  width: 220%;
+  height: 75%;
+  background-image:
+    linear-gradient(rgba(255,87,34,0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,87,34,0.25) 1px, transparent 1px);
+  background-size: 55px 55px;
+  transform: perspective(480px) rotateX(50deg) translateY(30px);
+  transform-origin: bottom center;
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0) 65%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0) 65%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* LEFT side wall grid */
+.hero-grid-left {
+  position: absolute;
+  top: 0;
+  left: -5%;
+  width: 35%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(255,87,34,0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,87,34,0.18) 1px, transparent 1px);
+  background-size: 55px 55px;
+  transform: perspective(600px) rotateY(35deg);
+  transform-origin: left center;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 80%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* RIGHT side wall grid */
+.hero-grid-right {
+  position: absolute;
+  top: 0;
+  right: -5%;
+  width: 35%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(255,87,34,0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,87,34,0.18) 1px, transparent 1px);
+  background-size: 55px 55px;
+  transform: perspective(600px) rotateY(-35deg);
+  transform-origin: right center;
+  mask-image: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 80%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ─── Background Dev Pattern ──────────────────────────────────── */
+.bg-pattern {
+  background-color: var(--bg-deep);
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Navbar ─────────────────────────────────────────────────── */
+.navbar-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-pill {
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  padding: 0.25rem;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.60);
+  font-size: 0.875rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+.nav-link:hover  { color: #fff; background: rgba(255,87,34,0.10); }
+.nav-link.active { color: var(--accent); background: rgba(255,87,34,0.12); }
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.15s;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-primary:hover {
+  background: var(--accent-mid);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  padding: 0.65rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-mid);
+  transition: background 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background: rgba(255,87,34,0.10);
+  border-color: var(--accent);
+}
+
+/* ─── Cards ──────────────────────────────────────────────────── */
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.glass-card:hover {
+  border-color: var(--border-mid);
+  transform: translateY(-2px);
+}
+
+/* ─── Section badge ──────────────────────────────────────────── */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,87,34,0.08);
+  border: 1px solid rgba(255,87,34,0.4);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: 9999px;
+}
+
+/* ─── Skill tag ──────────────────────────────────────────────── */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--border-mid);
+  color: var(--gray-300);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+.skill-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ─── Timeline ───────────────────────────────────────────────── */
+.timeline-line {
+  position: absolute;
+  left: 1.25rem;
+  top: 2.5rem;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-mid), transparent);
+  opacity: 0.3;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 9999px;
+  background: var(--accent-mid);
+  border: 2px solid var(--bg);
+}
+
+/* ─── Avatar ring ────────────────────────────────────────────── */
+.avatar-ring {
+  border: 2px solid var(--border-mid);
+  border-radius: 9999px;
+  padding: 3px;
+  display: inline-block;
+}
+
+/* ─── Animations ─────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.animate-float      { animation: float 4s ease-in-out infinite; }
+.animate-fade-up    { animation: fadeSlideUp 0.55s ease both; }
+.animate-fade-up-d1 { animation: fadeSlideUp 0.55s 0.1s ease both; }
+.animate-fade-up-d2 { animation: fadeSlideUp 0.55s 0.2s ease both; }
+.animate-fade-up-d3 { animation: fadeSlideUp 0.55s 0.3s ease both; }
+.animate-fade-up-d4 { animation: fadeSlideUp 0.55s 0.4s ease both; }
+.animate-fade-in    { animation: fadeIn 0.6s ease both; }
+
+/* ─── Mobile responsive helpers ──────────────────────────────── */
+@media (max-width: 640px) {
+  .navbar-bar {
+    padding: 0.75rem 1rem;
+  }
+  .nav-pill {
+    display: none;
+  }
+}
