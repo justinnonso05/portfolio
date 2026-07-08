@@ -3,11 +3,20 @@ import Image from "next/image";
 
 const projects = [
   {
+    icon: <Users size={22} />,
+    title: "ResearchHUB",
+    desc: "A real time collaborative research management platform for academic research.",
+    stack: ["Express", "Next.js"],
+    link: "https://res-crmp.justinch.dev/",
+    tag: "Fullstack",
+    image: "/crmp.png",
+  },
+  {
     icon: <CreditCard size={22} />,
     title: "DuesPay",
     desc: "Digital payment platform designed for organizations to manage dues collection efficiently. Streamlines payments, tracks member contributions, and provides transparent reporting for treasurers and admins.",
     stack: ["React", "Django"],
-    link: "http://nacos-duespay.vercel.app/",
+    link: "https://nacos-duespay.vercel.app/",
     tag: "Fullstack",
     image: "/duespay.png",
   },

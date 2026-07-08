@@ -3,7 +3,7 @@ import { Mail, Code2 } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const socialLinks = [
-  { href: "https://github.com/chinonsoali",              icon: <FaGithub size={16} />,   label: "GitHub" },
+  { href: "https://github.com/justinnonso05/",              icon: <FaGithub size={16} />,   label: "GitHub" },
   { href: "https://linkedin.com/in/justin-chinonso",     icon: <FaLinkedin size={16} />, label: "LinkedIn" },
   { href: "mailto:chinonsoali2005@gmail.com",            icon: <Mail size={16} />,     label: "Email" },
 ];

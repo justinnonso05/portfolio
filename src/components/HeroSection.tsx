@@ -80,7 +80,7 @@ export default function HeroSection() {
         <div className="animate-fade-up-d4 flex items-center justify-center md:justify-start gap-5">
           {[
             {
-              href: "https://github.com/chinonsoali",
+              href: "https://github.com/justinnonso05/",
               icon: <FaGithub size={22} />,
               label: "GitHub",
             },

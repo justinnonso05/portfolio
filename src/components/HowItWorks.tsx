@@ -2,6 +2,17 @@ import { Briefcase, Calendar, MapPin } from "lucide-react";
 
 const experiences = [
   {
+    company: "Regent Microfinance Bank Ltd.",
+    role: "Backend Engineer (Contract)",
+    period: "May 2026 – Jul 2026",
+    location: "Remote",
+    bullets: [
+      "Engineered secure, scalable backend infrastructure and RESTful APIs using NestJS and Node.js to power digital banking operations.",
+      "Optimized database schemas, executed data migrations, and integrated third-party payment gateways while enforcing strict security protocols like data encryption and Role-Based Access Control (RBAC).",
+      "Collaborated on CI/CD pipelines, authored technical documentation, and maintained high system availability and code quality standards."
+    ],
+  },
+  {
     company: "ULININ",
     role: "Backend Developer",
     period: "Aug 2025 – Present",

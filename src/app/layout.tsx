@@ -26,11 +26,11 @@ export const metadata: Metadata = {
     "Nigeria",
     "Software Engineer",
   ],
-  authors: [{ name: "Justin Chinonso", url: "https://github.com/chinonsoali" }],
+  authors: [{ name: "Justin Chinonso", url: "https://github.com/justinnonso05/" }],
   openGraph: {
     title: "Justin Chinonso — Backend Engineer",
     description: "Backend-focused Fullstack Engineer with 4 years of experience building scalable APIs and web applications.",
-    url: "https://github.com/chinonsoali",
+    url: "https://github.com/justinnonso05/",
     siteName: "Justin Chinonso Portfolio",
     images: [
       {
