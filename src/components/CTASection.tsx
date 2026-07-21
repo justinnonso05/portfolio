@@ -1,4 +1,4 @@
-import { ExternalLink, CreditCard, Users, Vote, MessageSquare, BookOpen } from "lucide-react";
+import { ExternalLink, CreditCard, Users, Vote, MessageSquare, BookOpen, Music, Bot } from "lucide-react";
 import Image from "next/image";
 
 const projects = [
@@ -31,13 +31,22 @@ const projects = [
     image: "/nacospoll.png",
   },
   {
-    icon: <MessageSquare size={22} />,
-    title: "Voxs",
-    desc: "A p2p local file and messages sharing tool that can allow up to three members in a private room to share text and media securely.",
-    stack: ["FastAPI", "Next.js"],
-    link: "https://voxs.vercel.app",
-    tag: "Fullstack",
-    image: "/voxs.png",
+    icon: <Bot size={22} />,
+    title: "co-PI Research Hub",
+    desc: "A unified workspace for the full research lifecycle — manage repositories, collaborate in real time, and let your embedded AI principal investigator draft proposals and remember context.",
+    stack: ["Next.js", "AI", "Web3"],
+    link: "https://res-hub-copi.justinch.dev/",
+    tag: "AI / Fullstack",
+    image: "/copi.png",
+  },
+  {
+    icon: <Music size={22} />,
+    title: "MeloForge",
+    desc: "Your Music Passion, Forged by AI. Track every listen, battle genre rivals, get AI song suggestions, and mint your sonic legacy on Solana — powered by Google Gemini.",
+    stack: ["Next.js", "Solana", "Gemini AI"],
+    link: "https://meloforge.vercel.app/",
+    tag: "AI / Web3",
+    image: "/meloforge.png",
   },
   {
     icon: <BookOpen size={22} />,
