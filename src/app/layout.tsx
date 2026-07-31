@@ -25,7 +25,13 @@ export const metadata: Metadata = {
     "Node.js",
     "Nigeria",
     "Software Engineer",
+    "Justin Chinonso",
+    "Chinonso Ali",
+    "tech",
+    "portfolio",
+    "web developer"
   ],
+  metadataBase: new URL("https://justinch.dev"),
   authors: [{ name: "Justin Chinonso", url: "https://github.com/justinnonso05/" }],
   openGraph: {
     title: "Justin Chinonso — Backend Engineer",
